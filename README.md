@@ -1,7 +1,6 @@
 # CNN Optimizer Evaluation for ALL Classification
 
-> Interactive research paper showcase — deployable via **GitHub Pages**
-
+> Interactive research paper showcase
 ## 🔬 About the Paper
 
 **Title:** Evaluation of CNN Optimizer Combinations for ALL Classification
