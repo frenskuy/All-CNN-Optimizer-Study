@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CNN Optimizer Evaluation for ALL Classification | Research Paper</title>
+    <meta name="description"
+        content="Interactive showcase of research results: Evaluation of CNN Optimizer Combinations for Acute Lymphoblastic Leukemia (ALL) Image Classification. Best: Xception + RMSprop at 99.69% accuracy." />
+    <meta property="og:title" content="CNN Optimizer Evaluation for ALL Classification" />
+    <meta property="og:description"
+        content="Interactive paper results: 6 CNN architectures × 4 optimizers evaluated for leukemia detection. Xception + RMSprop achieves 99.69% accuracy." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ===================== NAVIGATION ===================== -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">
+                <span class="nav-logo-icon">⚗️</span>
+                <span class="nav-logo-text">Research Results</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#abstract" class="nav-link">Abstract</a></li>
+                <li><a href="#methodology" class="nav-link">Methods</a></li>
+                <li><a href="#results" class="nav-link">Results</a></li>
+                <li><a href="#best" class="nav-link">Best Model</a></li>
+                <li><a href="#conclusion" class="nav-link">Conclusion</a></li>
+            </ul>
+            <button class="nav-menu-btn" id="menu-btn" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-grid"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Accepted in JURNAL RESTI · 2026
+            </div>
+            <h1 class="hero-title">
+                Evaluation of CNN Optimizer<br />
+                <span class="gradient-text">Combinations for ALL Classification</span>
+            </h1>
+            <p class="hero-subtitle">
+                A systematic comparison of <strong>6 CNN architectures</strong> × <strong>4 optimizers</strong> for
+                Acute Lymphoblastic Leukemia (ALL) detection from peripheral blood smear images.
+            </p>
+            <div class="hero-authors">
+                <span class="author-chip">Sugiyarto Surono</span>
+                <span class="author-chip">Fanita Damayanti</span>
+                <span class="author-chip">Frenky Riski Gilang Pratama</span>
+                <span class="author-chip">Attarik Mohammad</span>
+                <span class="author-chip">Maretta Mia Audina</span>
+                <span class="author-chip">Marfungah Wati</span>
+            </div>
+            <p class="hero-affiliation">Universitas Ahmad Dahlan · Yogyakarta, Indonesia</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-value gradient-text">99.69%</span>
+                    <span class="stat-label">Best Accuracy</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-value gradient-text">Xception</span>
+                    <span class="stat-label">Best Architecture</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-value gradient-text">RMSprop</span>
+                    <span class="stat-label">Best Optimizer</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-value gradient-text">3,242</span>
+                    <span class="stat-label">Blood Cell Images</span>
+                </div>
+            </div>
+            <div class="hero-keywords">
+                <span class="keyword-tag">Deep Learning</span>
+                <span class="keyword-tag">CNN</span>
+                <span class="keyword-tag">Optimizer</span>
+                <span class="keyword-tag">Xception</span>
+                <span class="keyword-tag">RMSprop</span>
+                <span class="keyword-tag">Medical Imaging</span>
+                <span class="keyword-tag">Leukemia</span>
+                <span class="keyword-tag">ALL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ABSTRACT ===================== -->
+    <section class="section" id="abstract">
+        <div class="container">
+            <div class="section-label">01 · Abstract</div>
+            <h2 class="section-title">Overview</h2>
+            <div class="abstract-grid">
+                <div class="abstract-text glass-card">
+                    <p>
+                        Recent advances in deep learning, particularly Convolutional Neural Networks (CNNs), have
+                        significantly
+                        enhanced medical image classification. However, model performance is influenced not only by
+                        network architecture
+                        but also by the choice of optimizer. This study systematically evaluates and compares four
+                        optimizers —
+                        <strong>Adam, AdamW, NAdam, and RMSprop</strong> — across six CNN architectures:
+                        <strong>EfficientNet-B2, EfficientNet-B4, EfficientNetV2-S, EfficientNetV2-M, ResNet50V2, and
+                            Xception</strong>
+                        for microscopic blood cell image classification in ALL detection.
+                    </p>
+                    <p style="margin-top:1rem;">
+                        The experiments were conducted using the publicly available ALL dataset consisting of
+                        3,242 colored blood cell images from 89 patients across four classes. Results indicate that
+                        <strong>Xception combined with RMSprop achieved the highest performance</strong>, reaching
+                        <strong>99.69% accuracy</strong> with a loss of 0.0194, while ResNet50V2 showed the lowest
+                        accuracy (93.85%).
+                        The primary contribution lies in quantifying the interaction effects between optimizer and
+                        architecture choices,
+                        providing empirical guidance for developing more effective CNN-based diagnostic systems for ALL
+                        detection.
+                    </p>
+                    <div class="keywords-block">
+                        <span class="kw-label">Keywords:</span>
+                        Deep Learning · CNN · Optimizer · Xception · RMSprop
+                    </div>
+                </div>
+                <div class="abstract-side">
+                    <div class="info-card glass-card">
+                        <div class="info-card-icon">🏥</div>
+                        <h3>Target Disease</h3>
+                        <p>Acute Lymphoblastic Leukemia (ALL) — a hematological malignancy requiring rapid, accurate
+                            diagnosis.</p>
+                    </div>
+                    <div class="info-card glass-card">
+                        <div class="info-card-icon">📊</div>
+                        <h3>Dataset</h3>
+                        <p>3,242 Peripheral Blood Smear (PBS) images from 89 patients. Source: Kaggle (4-class ALL
+                            dataset).</p>
+                    </div>
+                    <div class="info-card glass-card">
+                        <div class="info-card-icon">🖥️</div>
+                        <h3>Environment</h3>
+                        <p>Google Colab with NVIDIA T4 GPU. PyTorch + timm library. Batch size: 32, 20 epochs per
+                            experiment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== METHODOLOGY ===================== -->
+    <section class="section section-alt" id="methodology">
+        <div class="container">
+            <div class="section-label">02 · Methodology</div>
+            <h2 class="section-title">Experimental Setup</h2>
+
+            <!-- Dataset Split Table -->
+            <div class="subsection">
+                <h3 class="subsection-title">Dataset Distribution</h3>
+                <p class="subsection-desc">
+                    The dataset was split in an 80:10:10 ratio (Training : Validation : Testing) across four leukemia
+                    classes.
+                </p>
+                <div class="table-wrapper glass-card">
+                    <table class="data-table" id="dataset-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Training</th>
+                                <th>Validation</th>
+                                <th>Testing</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="class-badge class-benign">Benign</span></td>
+                                <td>414</td>
+                                <td>60</td>
+                                <td>38</td>
+                                <td>512</td>
+                            </tr>
+                            <tr>
+                                <td><span class="class-badge class-preb">[M] Pre-B ALL</span></td>
+                                <td>762</td>
+                                <td>89</td>
+                                <td>104</td>
+                                <td>955</td>
+                            </tr>
+                            <tr>
+                                <td><span class="class-badge class-prob">[M] Pro-B ALL</span></td>
+                                <td>635</td>
+                                <td>88</td>
+                                <td>73</td>
+                                <td>796</td>
+                            </tr>
+                            <tr>
+                                <td><span class="class-badge class-epreb">[M] Early Pre-B ALL</span></td>
+                                <td>782</td>
+                                <td>87</td>
+                                <td>110</td>
+                                <td>979</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>Total</strong></td>
+                                <td><strong>2,593</strong></td>
+                                <td><strong>324</strong></td>
+                                <td><strong>325</strong></td>
+                                <td><strong>3,242</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Architecture Input Sizes -->
+            <div class="subsection">
+                <h3 class="subsection-title">CNN Architecture Input Sizes</h3>
+                <p class="subsection-desc">Each architecture requires a specific input resolution to leverage
+                    pre-trained weights optimally.</p>
+                <div class="arch-grid">
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">🔷</div>
+                        <div class="arch-name">ResNet50V2</div>
+                        <div class="arch-size">224 × 224</div>
+                    </div>
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">⭐</div>
+                        <div class="arch-name">Xception</div>
+                        <div class="arch-size">299 × 299</div>
+                    </div>
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">⚡</div>
+                        <div class="arch-name">EfficientNetB2</div>
+                        <div class="arch-size">260 × 260</div>
+                    </div>
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">⚡</div>
+                        <div class="arch-name">EfficientNetB4</div>
+                        <div class="arch-size">320 × 320</div>
+                    </div>
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">🚀</div>
+                        <div class="arch-name">EfficientNetV2-S</div>
+                        <div class="arch-size">320 × 320</div>
+                    </div>
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">🚀</div>
+                        <div class="arch-name">EfficientNetV2-M</div>
+                        <div class="arch-size">320 × 320</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Config -->
+            <div class="subsection">
+                <h3 class="subsection-title">Training Configuration</h3>
+                <div class="config-grid">
+                    <div class="config-row glass-card">
+                        <div class="config-items">
+                            <div class="config-item">
+                                <span class="config-key">Batch Size</span>
+                                <span class="config-val mono">32</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-key">Epochs</span>
+                                <span class="config-val mono">20</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-key">Strategy</span>
+                                <span class="config-val mono">2-stage transfer learning</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-key">Stage 1 LR</span>
+                                <span class="config-val mono">0.001 (classifier, 10 ep.)</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-key">Stage 2 LR</span>
+                                <span class="config-val mono">0.0001 (full fine-tune, 10 ep.)</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-key">Loss Function</span>
+                                <span class="config-val mono">CrossEntropyLoss</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-key">Weight Decay</span>
+                                <span class="config-val mono">1e-4</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-key">Framework</span>
+                                <span class="config-val mono">PyTorch + timm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== RESULTS ===================== -->
+    <section class="section" id="results">
+        <div class="container">
+            <div class="section-label">03 · Results</div>
+            <h2 class="section-title">Performance Results</h2>
+            <p class="section-subtitle">
+                Accuracy and loss for all 24 architecture–optimizer combinations tested on the held-out test set
+                (n=325).
+            </p>
+
+            <!-- Interactive Chart Tabs -->
+            <div class="chart-section glass-card">
+                <div class="chart-tabs">
+                    <button class="chart-tab active" id="tab-acc" onclick="showChart('acc')">Test Accuracy</button>
+                    <button class="chart-tab" id="tab-loss" onclick="showChart('loss')">Test Loss</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="accChart"></canvas>
+                    <canvas id="lossChart" style="display:none"></canvas>
+                </div>
+                <p class="chart-note">
+                    <span class="chart-legend-dot" style="background:var(--color-adam)"></span>Adam &nbsp;
+                    <span class="chart-legend-dot" style="background:var(--color-adamw)"></span>AdamW &nbsp;
+                    <span class="chart-legend-dot" style="background:var(--color-nadam)"></span>NAdam &nbsp;
+                    <span class="chart-legend-dot" style="background:var(--color-rms)"></span>RMSprop
+                </p>
+            </div>
+
+            <!-- Full Performance Table -->
+            <div class="subsection">
+                <h3 class="subsection-title">Complete Results Table</h3>
+                <p class="subsection-desc">Test accuracy and loss for all 6 architectures × 4 optimizers. Highlighted =
+                    Best.</p>
+                <div class="table-wrapper glass-card">
+                    <table class="data-table perf-table" id="perf-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Architecture</th>
+                                <th colspan="2">Adam</th>
+                                <th colspan="2">AdamW</th>
+                                <th colspan="2">NAdam</th>
+                                <th colspan="2">RMSprop</th>
+                            </tr>
+                            <tr>
+                                <th>Acc</th>
+                                <th>Loss</th>
+                                <th>Acc</th>
+                                <th>Loss</th>
+                                <th>Acc</th>
+                                <th>Loss</th>
+                                <th>Acc</th>
+                                <th>Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody id="perf-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- F1-Score Heatmap -->
+            <div class="subsection">
+                <h3 class="subsection-title">Best Model Classification Report</h3>
+                <p class="subsection-desc">
+                    Xception + RMSprop — detailed per-class performance on the test set (n=325).
+                </p>
+                <div class="report-grid">
+                    <div class="report-card glass-card benign">
+                        <div class="report-class">Benign</div>
+                        <div class="report-bars">
+                            <div class="bar-row"><span>Precision</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:99%"></div>
+                                </div><span class="bar-val">0.99</span>
+                            </div>
+                            <div class="bar-row"><span>Recall</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:98%"></div>
+                                </div><span class="bar-val">0.98</span>
+                            </div>
+                            <div class="bar-row"><span>F1-Score</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:98.5%"></div>
+                                </div><span class="bar-val">0.985</span>
+                            </div>
+                        </div>
+                        <div class="report-support">Support: 38</div>
+                    </div>
+                    <div class="report-card glass-card preb">
+                        <div class="report-class">[M] Pre-B ALL</div>
+                        <div class="report-bars">
+                            <div class="bar-row"><span>Precision</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:100%"></div>
+                                </div><span class="bar-val">1.00</span>
+                            </div>
+                            <div class="bar-row"><span>Recall</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:100%"></div>
+                                </div><span class="bar-val">1.00</span>
+                            </div>
+                            <div class="bar-row"><span>F1-Score</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:100%"></div>
+                                </div><span class="bar-val">1.00</span>
+                            </div>
+                        </div>
+                        <div class="report-support">Support: 104</div>
+                    </div>
+                    <div class="report-card glass-card prob">
+                        <div class="report-class">[M] Pro-B ALL</div>
+                        <div class="report-bars">
+                            <div class="bar-row"><span>Precision</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:100%"></div>
+                                </div><span class="bar-val">1.00</span>
+                            </div>
+                            <div class="bar-row"><span>Recall</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:100%"></div>
+                                </div><span class="bar-val">1.00</span>
+                            </div>
+                            <div class="bar-row"><span>F1-Score</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:100%"></div>
+                                </div><span class="bar-val">1.00</span>
+                            </div>
+                        </div>
+                        <div class="report-support">Support: 73</div>
+                    </div>
+                    <div class="report-card glass-card epreb">
+                        <div class="report-class">[M] Early Pre-B ALL</div>
+                        <div class="report-bars">
+                            <div class="bar-row"><span>Precision</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:99%"></div>
+                                </div><span class="bar-val">0.99</span>
+                            </div>
+                            <div class="bar-row"><span>Recall</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:100%"></div>
+                                </div><span class="bar-val">1.00</span>
+                            </div>
+                            <div class="bar-row"><span>F1-Score</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width:99.5%"></div>
+                                </div><span class="bar-val">0.995</span>
+                            </div>
+                        </div>
+                        <div class="report-support">Support: 110</div>
+                    </div>
+                </div>
+                <div class="overall-stats">
+                    <div class="overall-item glass-card">
+                        <span class="overall-label">Overall Accuracy</span>
+                        <span class="overall-val gradient-text">99.69%</span>
+                    </div>
+                    <div class="overall-item glass-card">
+                        <span class="overall-label">Macro Avg F1</span>
+                        <span class="overall-val gradient-text">~0.995</span>
+                    </div>
+                    <div class="overall-item glass-card">
+                        <span class="overall-label">Test Loss</span>
+                        <span class="overall-val gradient-text">0.0194</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison: ResNet50V2+Adam (worst detailed) -->
+            <div class="subsection">
+                <h3 class="subsection-title">Baseline: ResNet50V2 + Adam</h3>
+                <p class="subsection-desc">Classification report for the lowest-performing architecture combination
+                    (Acc: 96.00%).</p>
+                <div class="table-wrapper glass-card">
+                    <table class="data-table" id="resnet-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>F1-Score</th>
+                                <th>Support</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="class-badge class-benign">Benign</span></td>
+                                <td>0.92</td>
+                                <td>0.87</td>
+                                <td>0.89</td>
+                                <td>38</td>
+                            </tr>
+                            <tr>
+                                <td><span class="class-badge class-preb">[M] Pre-B</span></td>
+                                <td>0.95</td>
+                                <td>0.98</td>
+                                <td>0.97</td>
+                                <td>104</td>
+                            </tr>
+                            <tr>
+                                <td><span class="class-badge class-prob">[M] Pro-B</span></td>
+                                <td>0.99</td>
+                                <td>1.00</td>
+                                <td>0.99</td>
+                                <td>73</td>
+                            </tr>
+                            <tr>
+                                <td><span class="class-badge class-epreb">[M] Early Pre-B</span></td>
+                                <td>0.96</td>
+                                <td>0.95</td>
+                                <td>0.95</td>
+                                <td>110</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td>Macro Avg</td>
+                                <td>0.95</td>
+                                <td>0.95</td>
+                                <td>0.95</td>
+                                <td>325</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== BEST MODEL ===================== -->
+    <section class="section section-alt" id="best">
+        <div class="container">
+            <div class="section-label">04 · Best Configuration</div>
+            <h2 class="section-title">
+                <span class="gradient-text">Xception + RMSprop</span>
+            </h2>
+            <p class="section-subtitle">The top-performing combination achieves near-perfect classification of ALL
+                subtypes.</p>
+
+            <div class="best-grid">
+                <div class="best-highlight glass-card">
+                    <div class="best-metric">
+                        <div class="best-num gradient-text">99.69%</div>
+                        <div class="best-desc">Test Accuracy</div>
+                    </div>
+                    <div class="best-metric">
+                        <div class="best-num gradient-text">0.0194</div>
+                        <div class="best-desc">Test Loss (lowest)</div>
+                    </div>
+                    <div class="best-insight">
+                        <h4>Why Xception?</h4>
+                        <p>Xception leverages <strong>depthwise separable convolutions</strong>, which efficiently
+                            decouple channel-wise and spatial feature extraction. This architectural design offers
+                            excellent representational power ideal for capturing fine morphological differences in blood
+                            cell imagery.</p>
+                    </div>
+                    <div class="best-insight">
+                        <h4>Why RMSprop?</h4>
+                        <p>RMSprop adapts learning rates using a <strong>moving average of squared gradients</strong>,
+                            stabilizing training on small, imbalanced medical datasets. It avoids the aggressive weight
+                            decay of AdamW and the potential over-correction of NAdam, making it ideal for this task.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="optimizer-compare">
+                    <h3 class="subsection-title">Optimizer Ranking (Xception)</h3>
+                    <div class="opt-rank-list">
+                        <div class="opt-rank-item opt-rank-1">
+                            <span class="rank-badge">🥇</span>
+                            <div class="rank-info">
+                                <span class="rank-name">RMSprop</span>
+                                <div class="rank-bar-track">
+                                    <div class="rank-bar-fill" style="width:99.69%"></div>
+                                </div>
+                            </div>
+                            <span class="rank-acc">99.69%</span>
+                        </div>
+                        <div class="opt-rank-item opt-rank-2">
+                            <span class="rank-badge">🥈</span>
+                            <div class="rank-info">
+                                <span class="rank-name">AdamW</span>
+                                <div class="rank-bar-track">
+                                    <div class="rank-bar-fill" style="width:99.39%"></div>
+                                </div>
+                            </div>
+                            <span class="rank-acc">99.39%</span>
+                        </div>
+                        <div class="opt-rank-item opt-rank-3">
+                            <span class="rank-badge">🥉</span>
+                            <div class="rank-info">
+                                <span class="rank-name">NAdam</span>
+                                <div class="rank-bar-track">
+                                    <div class="rank-bar-fill" style="width:99.08%"></div>
+                                </div>
+                            </div>
+                            <span class="rank-acc">99.08%</span>
+                        </div>
+                        <div class="opt-rank-item opt-rank-4">
+                            <span class="rank-badge">4th</span>
+                            <div class="rank-info">
+                                <span class="rank-name">Adam</span>
+                                <div class="rank-bar-track">
+                                    <div class="rank-bar-fill" style="width:98.77%"></div>
+                                </div>
+                            </div>
+                            <span class="rank-acc">98.77%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONCLUSION ===================== -->
+    <section class="section" id="conclusion">
+        <div class="container">
+            <div class="section-label">05 · Conclusion</div>
+            <h2 class="section-title">Key Findings</h2>
+            <div class="conclusion-grid">
+                <div class="conclusion-card glass-card">
+                    <div class="conclusion-icon">🎯</div>
+                    <h3>Best Combination</h3>
+                    <p>
+                        <strong>Xception + RMSprop</strong> achieved the highest accuracy of <strong>99.69%</strong>
+                        with a test loss of 0.0194 — the strongest result among all 24 architecture–optimizer pairs.
+                    </p>
+                </div>
+                <div class="conclusion-card glass-card">
+                    <div class="conclusion-icon">📉</div>
+                    <h3>Lowest Performer</h3>
+                    <p>
+                        <strong>ResNet50V2</strong> consistently performed lowest across all optimizers,
+                        with a best accuracy of 96.00% using Adam. This suggests its residual architecture is
+                        less suited to fine-grained blood cell morphology.
+                    </p>
+                </div>
+                <div class="conclusion-card glass-card">
+                    <div class="conclusion-icon">🔄</div>
+                    <h3>Optimizer Impact</h3>
+                    <p>
+                        The choice of optimizer significantly interacts with architecture. RMSprop excels with Xception,
+                        while NAdam shows competitive performance with EfficientNetV2 variants.
+                        No single optimizer dominates universally.
+                    </p>
+                </div>
+                <div class="conclusion-card glass-card">
+                    <div class="conclusion-icon">🏥</div>
+                    <h3>Clinical Relevance</h3>
+                    <p>
+                        Results empirically demonstrate that <strong>Xception + RMSprop</strong> can serve as a
+                        reliable backbone for automated ALL diagnosis systems, supporting computer-assisted
+                        clinical decision-making in hematology.
+                    </p>
+                </div>
+                <div class="conclusion-card glass-card">
+                    <div class="conclusion-icon">⚠️</div>
+                    <h3>Limitations</h3>
+                    <p>
+                        Experiments use a single dataset; splitting is image-level, not patient-level.
+                        Only 6 architectures and 4 optimizers were evaluated. Future work should extend to
+                        more diverse datasets and patient-aware validation splits.
+                    </p>
+                </div>
+                <div class="conclusion-card glass-card">
+                    <div class="conclusion-icon">🔬</div>
+                    <h3>Future Directions</h3>
+                    <p>
+                        Exploring patient-level cross-validation, additional architectures (e.g., ViT, DenseNet),
+                        and ensemble methods may further improve reliability and generalization for clinical deployment.
+                    </p>
+                </div>
+            </div>
+
+            <div class="acknowledgment glass-card">
+                <h3>Acknowledgements</h3>
+                <p>The authors extend their heartfelt appreciation to <strong>FAST Ahmad Dahlan University,
+                        Indonesia</strong>,
+                    especially the Mathematics Laboratory, for the support, facilities, and meaningful assistance
+                    that greatly contributed to the completion of this research.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-title">CNN Optimizer Evaluation for ALL Classification</div>
+                    <p class="footer-affiliation">
+                        Universitas Ahmad Dahlan · Yogyakarta, Indonesia<br />
+                        Accepted in JURNAL RESTI (Rekayasa Sistem dan Teknologi Informasi)
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-link-group">
+                        <div class="footer-link-title">Paper Sections</div>
+                        <a href="#abstract" class="footer-link">Abstract</a>
+                        <a href="#methodology" class="footer-link">Methodology</a>
+                        <a href="#results" class="footer-link">Results</a>
+                        <a href="#best" class="footer-link">Best Model</a>
+                        <a href="#conclusion" class="footer-link">Conclusion</a>
+                    </div>
+                    <div class="footer-link-group">
+                        <div class="footer-link-title">Dataset & Tools</div>
+                        <a href="https://www.kaggle.com/datasets/mohammadamireshraghi/blood-cell-cancer-all-4class"
+                            class="footer-link" target="_blank" rel="noopener">Kaggle Dataset ↗</a>
+                        <a href="https://jurnal.iaii.or.id/index.php/RESTI" class="footer-link" target="_blank"
+                            rel="noopener">JURNAL RESTI ↗</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2026 · Universitas Ahmad Dahlan · Research Results Showcase</div>
+                <div class="footer-tech">Built with HTML · CSS · Chart.js</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
